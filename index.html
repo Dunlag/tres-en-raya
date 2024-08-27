@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tres en raya</title>
-    <link rel="stylesheet" href="styles.css">
+    <!-- Metadatos esenciales para la página web -->
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura el viewport para hacer la página responsiva -->
+    <title>Tres en raya</title> <!-- Título de la página que aparecerá en la pestaña del navegador -->
+    <link rel="stylesheet" href="styles.css"> <!-- Vincula la hoja de estilos CSS externa -->
 </head>
 <body>
+    <!-- Contenedor principal del juego -->
     <div class="game">
 
+        <!-- Sección que muestra el turno actual -->
         <article data-id="game__message">
             <h2>El turno es para <span class="game__turn">
-
+            <!-- El turno del jugador actual ("X" o "O") se inserta aquí dinámicamente -->
             </span> </h2>
         </article>
 
+        <!-- Tablero del juego donde se crearán las celdas para jugar -->
         <section class="game__board">
         </section>
 
-
     </div>
 
+    <!-- Sección que aparece cuando el juego termina (victoria o empate) -->
     <section class="endgame">
         <div class="endgame__show">
-            <h1 class="endgame__result"></h1>
+            <h1 class="endgame__result"></h1> <!-- Muestra el resultado del juego ("X ha ganado" o "EMPATE") -->
             <p>¿Quieres volver a jugar?</p>
-            <button class="endgame__button">Reiniciar el juego</button>
+            <button class="endgame__button">Reiniciar el juego</button> <!-- Botón para reiniciar el juego -->
         </div>
     </section>
 
+    <!-- Enlace al archivo JavaScript que contiene la lógica del juego -->
     <script src="./app.js"></script>
 </body>
 </html>

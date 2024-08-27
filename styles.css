@@ -1,123 +1,136 @@
+/* Reset de márgenes y configuración de box-sizing para todos los elementos, pseudo-elementos ::before y ::after */
 *, ::before, ::after{
     margin: 0;
     box-sizing: border-box;
 }
 
+/* Estilos generales del cuerpo de la página */
 body{
-    background-color: slateblue;
-    font-family: Arial, Helvetica, sans-serif;
-    color: azure;
+    background-color: slateblue; /* Fondo azul pizarra */
+    font-family: Arial, Helvetica, sans-serif; /* Tipografía del cuerpo */
+    color: azure; /* Color de texto blanco azulado */
 }
 
+/* Contenedor principal del juego */
 .game{
     width: 100%;
-    height: 100vh;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
     display: grid;
-    gap: 1rem;
-    place-content: center;
+    gap: 1rem; /* Espacio entre elementos del grid */
+    place-content: center; /* Centra el contenido en la pantalla */
 }
 
+/* Estilo del tablero del juego */
 .game__board{
     width: 300px;
-    height: 300px;
+    height: 300px; /* Dimensiones del tablero */
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr ;
+    grid-template-columns: 1fr 1fr 1fr; /* Tres columnas iguales */
+    grid-template-rows: 1fr 1fr 1fr; /* Tres filas iguales */
 }
 
+/* Estilo de cada celda del tablero */
 .cell{
     width: 100%;
-    height: 100%;
-    border: 2px solid #fff;
+    height: 100%; /* Cada celda ocupa todo el espacio disponible */
+    border: 2px solid #fff; /* Bordes blancos alrededor de cada celda */
     display: grid;
-    place-items: center;
-    cursor: pointer;
-    grid-template-areas: "draw";
+    place-items: center; /* Centra el contenido de cada celda */
+    cursor: pointer; /* Cambia el cursor a una mano al pasar por encima */
+    grid-template-areas: "draw"; /* Define un área para dibujar la X o el O */
 }
 
+/* Estilo para el círculo (jugador O) */
 .circle::after{
     content: "";
-    grid-area: draw;
+    grid-area: draw; /* Coloca el contenido en el área definida en la celda */
     display: block;
     width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 10px solid white;
-    animation: show .3s;
+    height: 50px; /* Dimensiones del círculo */
+    border-radius: 50%; /* Hace que el contenedor sea un círculo */
+    border: 10px solid white; /* Borde del círculo */
+    animation: show .3s; /* Animación de aparición */
 }
 
+/* Estilo para la cruz (jugador X) - primera línea de la cruz */
 .cross::after{
     content: "";
-    grid-area: draw;
+    grid-area: draw; /* Coloca el contenido en el área definida en la celda */
     display: block;
     width: 10px;
-    height: 70px;
-    background-color: white;
-    transform: rotate(45deg);
-    border-radius: 10px;
-    animation: show-reverse .3s;
+    height: 70px; /* Dimensiones de la primera línea de la cruz */
+    background-color: white; /* Color blanco para la cruz */
+    transform: rotate(45deg); /* Rota la línea 45 grados */
+    border-radius: 10px; /* Bordes redondeados */
+    animation: show-reverse .3s; /* Animación de aparición con rotación inversa */
 }
 
+/* Estilo para la cruz (jugador X) - segunda línea de la cruz */
 .cross::before{
     content: "";
-    grid-area: draw;
+    grid-area: draw; /* Coloca el contenido en el área definida en la celda */
     display: block;
     width: 10px;
-    height: 70px;
-    background-color: white;
-    transform: rotate(-45deg);
-    border-radius: 10px;
-    animation: show-reverse .3s;
+    height: 70px; /* Dimensiones de la segunda línea de la cruz */
+    background-color: white; /* Color blanco para la cruz */
+    transform: rotate(-45deg); /* Rota la línea -45 grados */
+    border-radius: 10px; /* Bordes redondeados */
+    animation: show-reverse .3s; /* Animación de aparición con rotación inversa */
 }
 
+/* Animación para mostrar el círculo */
 @keyframes show{
     0%{
-        transform: scale(0) rotate(-45deg);
+        transform: scale(0) rotate(-45deg); /* Empieza con tamaño 0 y rotado */
     }
     100%{
-        transform: scale(1) rotate(-45deg);
+        transform: scale(1) rotate(-45deg); /* Termina con tamaño completo y rotado */
     }
 }
 
+/* Animación para mostrar la cruz */
 @keyframes show-reverse{
     0%{
-        transform: scale(0) rotate(45deg);
+        transform: scale(0) rotate(45deg); /* Empieza con tamaño 0 y rotado */
     }
     100%{
-        transform: scale(1) rotate(45deg);
+        transform: scale(1) rotate(45deg); /* Termina con tamaño completo y rotado */
     }
 }
 
+/* Estilo de la pantalla final que aparece cuando el juego termina */
 .endgame{
-    background-color: #000000bc;
+    background-color: #000000bc; /* Fondo negro semi-transparente */
     position: absolute;
-    inset: 0;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .3s;
-
+    inset: 0; /* Ocupa toda la pantalla */
+    opacity: 0; /* Comienza invisible */
+    pointer-events: none; /* No es interactivo mientras está oculto */
+    transition: opacity .3s; /* Transición suave de visibilidad */
     display: grid;
-    place-content: center;
+    place-content: center; /* Centra el contenido */
 }
 
+/* Estilo del contenido dentro de la pantalla final */
 .endgame__show{
     display: grid;
-    gap: 1rem;
-    text-align: center;
+    gap: 1rem; /* Espacio entre elementos del grid */
+    text-align: center; /* Centra el texto */
 }
 
+/* Estilo del botón para reiniciar el juego */
 .endgame__button{
-    background-color: navy;
-    font-weight: bold;
-    color: white;
-    padding: 1rem 2rem;
-    margin: 0 auto;
-    width: max-content;
-    border: none;
-    border-radius: 100px;
+    background-color: navy; /* Color de fondo azul marino */
+    font-weight: bold; /* Texto en negrita */
+    color: white; /* Texto blanco */
+    padding: 1rem 2rem; /* Espaciado interno del botón */
+    margin: 0 auto; /* Centra el botón horizontalmente */
+    width: max-content; /* Botón se adapta al contenido */
+    border: none; /* Sin borde */
+    border-radius: 100px; /* Bordes redondeados */
 }
 
+/* Clase que se aplica para mostrar la pantalla final */
 .show{
-    opacity: 1;
-    pointer-events: unset;
+    opacity: 1; /* Hace visible la pantalla final */
+    pointer-events: unset; /* Activa la interactividad */
 }
