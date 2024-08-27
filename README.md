@@ -1,7 +1,3 @@
-Aquí tienes el README para el repositorio de tu proyecto "Tres en Raya" publicado en Vercel:
-
----
-
 # Tres en Raya
 
 ¡Bienvenido al juego de Tres en Raya! Este proyecto es una implementación simple del clásico juego "Tres en Raya" utilizando **HTML**, **CSS** y **JavaScript**. Puedes jugarlo directamente en tu navegador visitando el sitio [Tres en Raya en Vercel](https://tresenraya-steel.vercel.app/).
